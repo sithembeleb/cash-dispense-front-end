@@ -1,79 +1,92 @@
 <div style="text-align:center">
-    <h1>Cash Dispense</h1>
-  </div>
-  <div id="loginForm" style="text-align:center">
-      <h5 *ngIf="loginForm.get('logiSuccessful').value==false" class="alert alet-dander">{{loginMessage}}</h5>
-      <form [formGroup]="loginForm" (ngSubmit)='authenticate()'>
-        <div class="form-group">
-        <table>
-          <tr>
-            <td align="right">Username:</td>
-            <td align="left"><input class="form-control" formControlName="username" type="text"/></td>
-            <td>
-                <div *ngIf="loginForm.get('username').touched && loginForm.get('username').invalid" class="alert alet-dander">provide username</div>
-            </td>
-          </tr>
-          <tr>
-            <td align="right">Password:</td>
-            <td align="left"><input class="form-control" formControlName="password"  type="password"/></td>
-              <td>
-                <div *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid" class="alert alet-dander">provide password</div>
-            </td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td align="left">
-                <button type="submit" [disabled]="loginForm.invalid" id="submit">Login</button>
-            </td>
-          </tr>
+  <h1>Cash Dispense</h1>
+</div>
+<div id="loginForm" style="text-align:center">
+  <h5 *ngIf="loginForm.get('logiSuccessful').value==false" class="alert alet-dander">{{loginMessage}}</h5>
+  <form [formGroup]="loginForm" (ngSubmit)='authenticate()'>
+    <div class="form-group">
+      <table>
+        <tr>
+          <td align="right">Username:</td>
+          <td align="left"><input class="form-control" formControlName="username" type="text"/></td>
+          <td>
+            <div *ngIf="loginForm.get('username').touched && loginForm.get('username').invalid"
+                 class="alert alet-dander">provide username
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">Password:</td>
+          <td align="left"><input class="form-control" formControlName="password" type="password"/></td>
+          <td>
+            <div *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid"
+                 class="alert alet-dander">provide password
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td align="left">
+            <button type="submit" [disabled]="loginForm.invalid" id="submit">Login</button>
+          </td>
+        </tr>
       </table>
-      </div>
-      </form>
     </div>
+  </form>
+</div>
 
-   <div id="dispenseForm">
-        <form [formGroup]="cashDispenseform" (ngSubmit)='dispenseCash()'>
-          <div class="form-group">
-              <h5 *ngIf="cashDispenseform.get('breadownReceived').value==false" class="alert alet-dander">{{responseMessage}}</h5>
-            <table>
-            <tr>
-              <td align="right">Amount Due:</td>
-              <td align="left"><input class="form-control" formControlName="amountDue" type="text"/></td>
-              <td>
-                 <div *ngIf="cashDispenseform.get('amountDue').touched && cashDispenseform.get('amountDue').invalid" class="alert alet-dander">provide amountDue</div>
-              </td>
-            </tr>
-            <tr>
-              <td align="right">Rand Note:</td>
-              <td align="left"><input class="form-control" formControlName="randNote"  type="text"/></td>
-              <td>
-                 <div *ngIf="cashDispenseform.get('randNote').touched && cashDispenseform.get('randNote').invalid" class="alert alet-dander">provide totalNote</div>
-              </td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-              <td align="left">
-                  <button type="submit" [disabled]="cashDispenseform.invalid">Submit</button>
-              </td>
-            </tr>
-        </table>
-        </div>
-        </form>
-      </div>
+<div id="dispenseForm">
+  <form [formGroup]="cashDispenseform" (ngSubmit)='dispenseCash()'>
+    <div class="form-group">
+      <h5 *ngIf="cashDispenseform.get('breadownReceived').value==false" class="alert alet-dander">
+        {{responseMessage}}</h5>
+      <table>
+        <tr>
+          <td align="right">Amount Due:</td>
+          <td align="left"><input class="form-control" formControlName="amountDue" type="text"/></td>
+          <td>
+            <div *ngIf="cashDispenseform.get('amountDue').touched && cashDispenseform.get('amountDue').invalid"
+                 class="alert alet-dander">provide amountDue
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">Rand Note:</td>
+          <td align="left"><input class="form-control" formControlName="randNote" type="text"/></td>
+          <td>
+            <div *ngIf="cashDispenseform.get('randNote').touched && cashDispenseform.get('randNote').invalid"
+                 class="alert alet-dander">provide totalNote
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td align="left">
+            <button type="submit" [disabled]="cashDispenseform.invalid">Submit</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+</div>
 
-       <div *ngIf="showDenominations==true" class="form-group">
-         <h4>Breakdown of cash to dispense : {{amountDue}}</h4>
-         <table>
-            <tr *ngFor="let response of responses;">
-                <td>&nbsp;</td>
-                <td>{{response.cashDenomination}} * {{response.numberOfCashDenomination}}</td>
-            </tr>
-            <tr>
-              <td><button (click)="clear()" type="submit">Reset</button>
-              </td>
-            </tr>
-         </table>
-      </div>
+<div *ngIf="showDenominations==true" class="form-group">
+  <h4 align="center">Breakdown of cash to dispense : {{amountDue}}</h4>
+  <form (ngSubmit)="clear()">
+    <table>
+      <tr *ngFor="let response of responses;">
+        <td align="left">{{response.cashDenomination}} * {{response.numberOfCashDenomination}}</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td align="left">
+          <button type="submit">Reset</button>
+        </td>
+      </tr>
+    </table>
+
+  </form>
+</div>
 
 
 

@@ -1,14 +1,14 @@
 <div style="text-align:center">
     <h1>Cash Dispense</h1>
-  </div>  
+  </div>
   <div id="loginForm" style="text-align:center">
-      <h5 *ngIf="loginForm.get('logiSuccessful').value==false" class="alert alet-dander">{{loginMessage}}</h5>  
-      <form [formGroup]="loginForm" (ngSubmit)='authenticate()'>               
+      <h5 *ngIf="loginForm.get('logiSuccessful').value==false" class="alert alet-dander">{{loginMessage}}</h5>
+      <form [formGroup]="loginForm" (ngSubmit)='authenticate()'>
         <div class="form-group">
         <table>
           <tr>
             <td align="right">Username:</td>
-            <td align="left"><input class="form-control" formControlName="username" type="text"/></td>          
+            <td align="left"><input class="form-control" formControlName="username" type="text"/></td>
             <td>
                 <div *ngIf="loginForm.get('username').touched && loginForm.get('username').invalid" class="alert alet-dander">provide username</div>
             </td>
@@ -29,25 +29,25 @@
       </table>
       </div>
       </form>
-    </div>   
- 
+    </div>
+
    <div id="dispenseForm">
-        <form [formGroup]="cashDispenseform" (ngSubmit)='dispenseCash()'> 
+        <form [formGroup]="cashDispenseform" (ngSubmit)='dispenseCash()'>
           <div class="form-group">
-              <h5 *ngIf="cashDispenseform.get('breadownReceived').value==false" class="alert alet-dander">{{responseMessage}}</h5>                
+              <h5 *ngIf="cashDispenseform.get('breadownReceived').value==false" class="alert alet-dander">{{responseMessage}}</h5>
             <table>
             <tr>
               <td align="right">Amount Due:</td>
-              <td align="left"><input class="form-control" formControlName="amountDue" type="text"/></td>          
+              <td align="left"><input class="form-control" formControlName="amountDue" type="text"/></td>
               <td>
-                 <div *ngIf="cashDispenseform.get('amountDue').touched && cashDispenseform.get('amountDue').invalid" class="alert alet-dander">provide amountDue</div> 
+                 <div *ngIf="cashDispenseform.get('amountDue').touched && cashDispenseform.get('amountDue').invalid" class="alert alet-dander">provide amountDue</div>
               </td>
             </tr>
             <tr>
               <td align="right">Rand Note:</td>
               <td align="left"><input class="form-control" formControlName="randNote"  type="text"/></td>
               <td>
-                 <div *ngIf="cashDispenseform.get('randNote').touched && cashDispenseform.get('randNote').invalid" class="alert alet-dander">provide totalNote</div> 
+                 <div *ngIf="cashDispenseform.get('randNote').touched && cashDispenseform.get('randNote').invalid" class="alert alet-dander">provide totalNote</div>
               </td>
             </tr>
             <tr>
@@ -59,24 +59,24 @@
         </table>
         </div>
         </form>
-      </div>  
-      
-       <div *ngIf="showDenominations==true">
+      </div>
+
+       <div *ngIf="showDenominations==true" class="form-group">
          <h4>Breakdown of cash to dispense : {{amountDue}}</h4>
          <table>
             <tr *ngFor="let response of responses;">
                 <td>&nbsp;</td>
                 <td>{{response.cashDenomination}} * {{response.numberOfCashDenomination}}</td>
             </tr>
-            <tr> 
+            <tr>
               <td><button (click)="clear()" type="submit">Reset</button>
               </td>
             </tr>
          </table>
       </div>
 
-      
-      
+
+
 
 
 

@@ -1,15 +1,29 @@
 Prerequisites
 
-1. install node.js 
-2. install NPM
+1. install node and NPM
+
+      (MAC)
+brew install node 
+
+      Linux
+sudo apt-get install nodejs 
+
+      Windows 
+download node for windows on from this link https://nodejs.org/en/download/ 
+see installation instructions http://blog.teamtreehouse.com/install-node-js-npm-windows 
+
+
 2. install angularCLI
 
-How to run front cash-dispense-front-end application
+sudo npm install -g @angular/cli 
+
+3. How to run front cash-dispense-front-end application
 
 cd to project directory
 run command 'npm install' to download dependencies
-run command 'ng serve' to start up the apllication
+run command 'ng serve' to start up the application
 
-endPoint to crete a user below 
+endPoint to create a user below 
 
 localhost:8089//cash/dispense/register?name=Test&password=Test&username=Test
+

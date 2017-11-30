@@ -1,6 +1,6 @@
 Prerequisites
 
-1. install node and NPM
+1. install node
 
       (MAC)
 brew install node 

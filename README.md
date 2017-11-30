@@ -25,5 +25,5 @@ run command 'ng serve' to start up the application
 
 endPoint to create a user below 
 
-localhost:8089//cash/dispense/register?name=Test&password=Test&username=Test
+http://localhost:8089/cash/dispense/register?name=test&password=test&username=test
 

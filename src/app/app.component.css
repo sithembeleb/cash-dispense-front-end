@@ -9,7 +9,6 @@ input[type=password],input[type=text], select {
 }
 
 button, input[type=submit] {
-    width: 50%;
     background-color:black;
     color: white;
     padding: 14px 20px;
@@ -37,5 +36,10 @@ form {
 .alet-dander{
     color: red
 }
+
+#clear{
+  width: 100%;
+}
+
 
 #dispenseForm { display: none; }
